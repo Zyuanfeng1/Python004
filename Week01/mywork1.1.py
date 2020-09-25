@@ -15,7 +15,7 @@ response = requests.get(myurl, headers=header)
 bs_info = bs(response.text, 'html.parser')
 sleep(5)
 
-for tags in bs_info.find_all('div', attrs={'class': 'channel-detail movie-item-title'}):
+for tags in bs_info.find_all('div', attrs={'class': 'channel-detail movie-item-title'},limit=10):
      for atag in tags.find_all('a'):
         urls = 'https://maoyan.com' + atag.get('href')
         print(urls)
@@ -39,6 +39,8 @@ for tags in bs_info.find_all('div', attrs={'class': 'channel-detail movie-item-t
         movie1 = pd.DataFrame(data = mylist)
 
 # # windows需要使用gbk字符集
+
+
         movie1.to_csv('./movie1.csv', mode='a',encoding='utf8', index=False, header=False)
 
         sleep(5)
