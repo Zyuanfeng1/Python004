@@ -13,13 +13,12 @@ myurl = 'https://maoyan.com/films?showType=3&offset=0'
 response = requests.get(myurl, headers=header)
 # print(response.text)
 bs_info = bs(response.text, 'html.parser')
-print(response.text)
 for tags in bs_info.find_all('div',attrs={'class':'movie-hover-info'},limit=10):
    film_name=tags.find('span',attrs={'class':'name'}).text
    print(film_name)
    category=[]
    for atag in tags.find_all('div',attrs={'class':'movie-hover-title'}):
-       category.append(atag.get_text().strip())
+       category.append(atag.get_text().split())
    kind=category[1]
    print(category[1])
    plan_date=category[3]
