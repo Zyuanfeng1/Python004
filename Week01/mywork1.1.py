@@ -13,34 +13,20 @@ myurl = 'https://maoyan.com/films?showType=3&offset=0'
 response = requests.get(myurl, headers=header)
 # print(response.text)
 bs_info = bs(response.text, 'html.parser')
-sleep(5)
+print(response.text)
+for tags in bs_info.find_all('div',attrs={'class':'movie-hover-info'},limit=10):
+   film_name=tags.find('span',attrs={'class':'name'}).text
+   print(film_name)
+   category=[]
+   for atag in tags.find_all('div',attrs={'class':'movie-hover-title'}):
+       category.append(atag.get_text().strip())
+   kind=category[1]
+   print(category[1])
+   plan_date=category[3]
+   print(category[3])
+   sleep(5)
+   mylist = [film_name,kind, plan_date]
+   movie1 = pd.DataFrame(data = mylist)
 
-for tags in bs_info.find_all('div', attrs={'class': 'channel-detail movie-item-title'},limit=10):
-     for atag in tags.find_all('a'):
-        urls = 'https://maoyan.com' + atag.get('href')
-        print(urls)
-        response1 = requests.get(urls, headers=header)
-        selector = lxml.etree.HTML(response1.text)
-        film_name = selector.xpath('/html/body/div[3]/div/div[2]/div[1]/h1/text()')
-        print(f'电影名称: {film_name}')
-#
-#  # 电影类型
-        category = selector.xpath('/html/body/div[3]/div/div[2]/div[1]/ul/li[1]/a/text()')
-        print(f'电影类型：{category}')
-#
- # # 上映日期
-        plan_date = selector.xpath('/html/body/div[3]/div/div[2]/div[1]/ul/li[3]/text()')
-        print(f'上映日期: {plan_date}')
-# #
-# #
-        mylist = [film_name, category, plan_date]
-        #print(f'返回码是：{response.status_code}')
-
-        movie1 = pd.DataFrame(data = mylist)
-
-# # windows需要使用gbk字符集
-
-
-        movie1.to_csv('./movie1.csv', mode='a',encoding='utf8', index=False, header=False)
-
-        sleep(5)
+# windows需要使用gbk字符集
+   movie1.to_csv('./maoyan.csv', mode='a',encoding='utf8', index=False, header=False)
