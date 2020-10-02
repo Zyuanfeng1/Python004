@@ -4,3 +4,6 @@
 数据库是新建的test数据库movies表
 作业2
 可以调用webdriver，requests传输用户名密码也能掌握，就是验证码还没过去
+用requests的时候总返回404页面，验证码页面都没进去
+用webdriver能进入验证码，但是导不出验证码图片，click登录按钮之后，不知道怎么进入下一个页面。
+click之后试过用xpath提取图片，都不成功
