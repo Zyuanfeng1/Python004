@@ -12,17 +12,17 @@ class MaoyanSpider(scrapy.Spider):
 
     def parse(self, response):
         print(response.url)
-        movies=Selector(response=response).xpath('//div[@class="movie-hover-info"]')
+        movies = Selector(response=response).xpath('//div[@class="movie-hover-info"]')
         try:
-            for movie in movies[:10] :
-                name=movie.xpath('./div[1]/span[@class="name "]/text()')
+            for movie in movies[:10]:
+                name = movie.xpath('./div[1]/span[@class="name "]/text()')
                 item = SpidersItem()
-                item['name']=name.extract_first().strip()
+                item['name'] = name.extract_first().strip()
                 print(name.extract_first().strip())
-                category=movie.xpath('./div[2]/text()')
-                item['category']=category.extract()[1].strip()
+                category = movie.xpath('./div[2]/text()')
+                item['category'] = category.extract()[1].strip()
                 print(category.extract()[1].strip())
-                plan_date=movie.xpath('./div[4]/text()')
+                plan_date = movie.xpath('./div[4]/text()')
                 item['plan_date'] = plan_date.extract()[1].strip()
                 print(plan_date.extract()[1].strip())
                 yield item
@@ -30,4 +30,3 @@ class MaoyanSpider(scrapy.Spider):
             print(e)
         finally:
             pass
-

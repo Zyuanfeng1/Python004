@@ -6,13 +6,13 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import pymysql
 
+
 class SpidersPipeline:
     def process_item(self, item, spider):
         name = item['name']
-        #item['name']="".join(item['name'].split())
+        # item['name']="".join(item['name'].split())
         category = item['category']
         plan_date = item['plan_date']
-
 
         conn = pymysql.connect(host='localhost',
                                port=3306,
@@ -26,9 +26,8 @@ class SpidersPipeline:
         con1 = conn.cursor()
 
         # 操作的行数
-        count = con1.execute('insert into movies values(%s,%s,%s);',(name,category,plan_date))
+        count = con1.execute('insert into movies values(%s,%s,%s);', (name, category, plan_date))
         count = con1.execute('commit;')
-
 
         # 获得所有查询结果
         print(con1.fetchall())

@@ -1,16 +1,44 @@
 # -*- coding: utf-8 -*-
 
+import random
+from collections import defaultdict
+from urllib.parse import urlparse
+
+from fake_useragent import UserAgent
 # Define here the models for your spider middleware
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 from scrapy import signals
 from scrapy.downloadermiddlewares.httpproxy import HttpProxyMiddleware
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 from scrapy.exceptions import NotConfigured
-from collections import defaultdict
-from urllib.parse import urlparse
-import random
 
+
+class RandomUserAgentMiddleware(UserAgentMiddleware):
+    """This middleware allows spiders to override the user_agent"""
+
+    def __init__(self, user_agent=None):
+        # def __init__(self, user_agent=UserAgent(verify_ssl=False)):
+        self.user_agent = user_agent
+
+        # self.user_agent = UserAgent(verify_ssl=False)
+        print(self.user_agent)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # o = cls(crawler.settings['USER_AGENT'])
+        o = cls(UserAgent(verify_ssl=False).Chrome)
+        crawler.signals.connect(o.spider_opened, signal=signals.spider_opened)
+        print(o)
+        return o
+
+    def spider_opened(self, spider):
+        self.user_agent = getattr(spider, 'user_agent', self.user_agent)
+
+    def process_request(self, request, spider):
+        if self.user_agent:
+            request.headers.setdefault(b'User-Agent', self.user_agent)
 
 
 class SpidersSpiderMiddleware:
@@ -60,9 +88,10 @@ class SpidersSpiderMiddleware:
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
+
 class RandomHttpProxyMiddleware(HttpProxyMiddleware):
 
-    def __init__(self, auth_encoding='utf-8', proxy_list = None):
+    def __init__(self, auth_encoding='utf-8', proxy_list=None):
         self.proxies = defaultdict(list)
         print(self.proxies)
         for proxy in proxy_list:
@@ -83,6 +112,7 @@ class RandomHttpProxyMiddleware(HttpProxyMiddleware):
     def _set_proxy(self, request, scheme):
         proxy = random.choice(self.proxies[scheme])
         request.meta['proxy'] = proxy
+
 
 class SpidersDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
