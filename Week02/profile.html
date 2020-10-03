@@ -1,37 +1,391 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>404 not found</title>
-    <meta charset="utf-8">
-<meta name="renderer" content="webkit" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<meta name="description" content="ʯī�ĵ���һ����㡢��������Э���ĵ����ߣ�Web �˺��ƶ���ȫ���ǣ�֧�ֶ���ͬʱ���ĵ��༭�����ۣ������������������Э��׫�塢�������ۡ������¼�����Ϲ����ȹ�����">
-<meta name="keywords" content="����Э���ĵ�,�����ĵ��༭,����Э���༭,Эͬ�༭,���˱༭,�Ŷ�Э������,�ĵ���������,�ĵ�Э��,�ļ��洢,�ļ�����,Э���칫,SAAS,��Э��,google docs,����office">
-<meta name="google" value="notranslate" />
-<meta name="apple-itunes-app" content="app-id=1013727678">
-<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="version" content="4.2.3">
-<!--[if lte IE 9]>
-<meta http-equiv="refresh" content="0;url=/browser">
-<![endif]-->
 
-    <link href="https://assets.smcdn.cn/assets/styles/404-42aab24298.css" rel="stylesheet">
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ProcessOn - 我的文件</title>
+<meta name="description" content="ProcessOn是一个在线协作绘图平台，为用户提供最强大、易用的作图工具！支持在线创作流程图、思维导图、组织结构图、网络拓扑图、BPMN、UML图、UI界面原型设计、iOS界面原型设计等。同时依托于互联网实现了人与人之间的实时协作和共享。">
+<meta name="keywords" content="思维导图,流程图,免费在线作图工具,在线流程图,在线思维导图,组织结构图,网络拓扑图,UML作图,UI界面原型设计,iOS原型设计,BPMN,多人协作绘图">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="/assets/css/global-e2a07f0c.css" type="text/css"/>
+<link rel="stylesheet" href="/assets/css/index-e2a07f0c.css" type="text/css"/>
+<link type="text/css" rel="stylesheet" href="/assets/css/collaboration-e2a07f0c.css" />
+<script type="text/javascript">
+var isLoadingGuide = "null", imagePath = "https://assets.processon.com", locale = "zh", expireTip = "", orgId = "";
+var teams = 1;
+var auto_upgrade = false;
+var activity_dlg = "";
+//设置Session Storage
+sessionStorage.setItem("navigationType", "my");
+sessionStorage.setItem("navigationValue", "");
+var activeOrgName = "";
+var activeOrgId = "";
+</script>
 </head>
 <body>
-    
-    <a href="/" class="home-link logo-white-22"></a>
-    
-    <div class="error-box error-404-box">
-        <div class="img-404"></div>
-        <div class="info-word">
-            <p>
-                
-                <a href="/" class="back-link">������ҳ</a>
-                
-            </p>
-        </div>
-        <img class="error-illustration error-404-illustration" src="https://assets.smcdn.cn/assets/images/404_illustration-331b4c7a8a.jpg"/>
-    </div>
+<header>
+<a href="/" id="pologo-link">
+<img id='pologo' alt="ProcessOn免费在线作图" src="/assets/imgs/logo_small.png"/>
+</a>
+<div class="left-control-btn"></div>
+<span class="left-item">
+<a href="javascript:void(0)" id="menu_organization"><span class="orgName" style="width: 260px;">团队</span><span class="icons">&#xe617;</span></a>
+<a href="/diagrams" class="active">个人</a>
+<a onmousedown="sessionStorage.setItem('ur_resource', 'po_header_nav')" href="/popular" id="header-popular">推荐</a>
+<a onmousedown="sessionStorage.setItem('ur_resource', 'po_header_nav')" href="/diagrams/new" id="header-nav-temp">模版</a>
+</span>
+<div class="right-item">
+<div id="user-logo" class="user-logo">
+<img src='https://accounts.processon.com/uphoto/18/322/5f77f2d8e0b34d0711f2529f.png' />
+</div>
+<div class="notice-icon">
+<div class="icon-warp">
+<span class="icons">&#xe69f;</span>
+</div>
+</div>
+</div>
+<a style="display:none;" href="/upgrade?pos=2_1" class="header-btn header-upgrade-btn">升级到个人版</a>
+</header>
+<div class="con-left">
+
+<div class="header-panel">
+<span id="menu_team" class="header-level"><span class="name"> 个人文件 </span><span class="icons">&#xe617;</span></span>
+<!-- 				<div id="team-change-tip" class="team-change-tip">之前的小组在这里切换哦 <span class="close-tip icons" style="display: inline-block;margin-left: 8px;cursor: pointer;">&#xe637;</span></div> -->
+</div>
+
+<div class="left-box">
+<a id="new-file" class="button new-file">新建</a>
+</div>
+<a href="javascript:;" data-nav="diagrams" class="active"><span class="icons">&#xe687;</span><label>我的文件</label></a>
+<a href="javascript:;" data-nav="history"><span class="icons">&#xe6a5;</span><label>最近修改</label></a>
+<a href="javascript:;" data-nav="colla"><span class="icons">&#xe689;</span><label>与我协作</label></a>
+<a href="javascript:;" data-nav="fav"><span class="icons">&#xe68a;</span><label>我的收藏</label></a>
+<a href="javascript:;" data-nav="trash"><span class="icons">&#xe68b;</span><label>回收站</label></a>
+</div>
+<div class="con-right">
+<div class="dir">
+<span id="dir_root" class="item" data-f-id="root">我的文件</span>
+<span title="List View" id="dir_sort" class="icons"></span>
+<span title="排序" id="sort_by" class="icons">&#xe6a1;</span>
+<ul class="menu" id="sort_by_menu">
+<li data-sort="title"><span class="icons"></span><span>标题</span></li>
+<li data-sort="lastModify"><span class="icons">&#xe658;</span><span>最后修改时间</span></li>
+<li data-sort="free"><span class="icons"></span><span>自定义排序</span></li>
+</ul>
+&nbsp;
+<span class="search-btn"><span class="icons">&#xe6a0;</span><input type="text"/></span>
+<span title="清空回收站" id="clear_trash" class="icons hide">&#xe68b;</span>
+</div>
+<div class="file-list"></div>
+<div class="page">
+<div class="pagination"></div>
+</div>
+</div>
+<div class="file-op"></div>
+<div class="create-btn-list">
+<div data-btn-i=6 data-category=""><span class="create-btn-dot oran"><span class="icons">&#xe619;</span></span><span class="list-text">新建文件夹</span></div>
+<span class="sub"></span>
+<div data-btn-i=5 data-category=""><span class="create-btn-dot oran"><span class="icons">&#xe624;</span></span><span class="list-text">导入</span></div>
+<span class="sub"></span>
+<div data-btn-i=0 data-category="flow">
+<span class="create-btn-dot blue"><span class="icons">&#xe622;</span></span>
+<span class="list-text">流程图</span>
+<a class="temp-in" title="从模板新建">模板</a>
+</div>
+<div data-btn-i=2 data-category="mind_free"><span class="create-btn-dot"><span style="font-size:17px;" class="icons">&#xe623;</span></span><span class="list-text">思维导图</span><a class="temp-in green" title="从模板新建">模板</a></div>
+<div data-btn-i=3 data-category="ui"><span class="create-btn-dot red"><span class="icons">&#xe608;</span></span><span class="list-text">原型图</span><a class="temp-in red" title="从模板新建">模板</a></div>
+<div data-btn-i=4 data-category="uml"><span class="create-btn-dot pur"><span style="font-size:20px;" class="icons">&#xe609;</span></span><span class="list-text">UML</span><a class="temp-in purple" title="从模板新建">模板</a></div>
+<div data-btn-i=7 data-category="network"><span class="create-btn-dot blue"><span class="icons">&#xe620;</span></span><span class="list-text">网络拓扑图</span><a class="temp-in" title="从模板新建">模板</a></div>
+<div data-btn-i=8 data-category="mind_org"><span class="create-btn-dot"><span style="font-size:17px;" class="icons">&#xe623;</span></span><span class="list-text">组织结构图</span><a class="temp-in green" title="从模板新建">模板</a></div>
+<div data-btn-i=1 data-category="bpmn"><span class="create-btn-dot blue"><span class="icons">&#xe613;</span></span><span class="list-text">BPMN</span><a class="temp-in" title="从模板新建">模板</a></div>
+<!-- 		<div id="board-btn" style="visibility: hidden;	"> -->
+<!-- 			<span class="create-btn-dot blue" style="background: #1D2129;"><span class="icons" >&#xe67d;</span></span> -->
+<!-- 			<span class="list-text">协作白板</span> -->
+<!-- 		</div> -->
+<a  style="padding:0px 0px 6px 0px;margin-top:4px;" onmousedown="sessionStorage.setItem('ur_resource', 'diagram_new_tem')" href="/diagrams/new" href="/diagrams/new"><span class="list-text">更多图形和模版>></span></a>
+</div>
+<div id="dlg_new_folder" style="width:350px;" class="dialog" title="新建文件夹">
+<div class="dlg-content">
+<div class="line-parent">
+<label>名称：</label>
+<input id="folder_new_title" style="width:311px;" placeholder="请输入名称" autofocus type="text" class="input" value="新建文件夹"/>
+</div>
+</div>
+<div class="dlg-buttons">
+<input type="button" id="btn_submit_folder" class="pro-btn default" value="确定">&nbsp;&nbsp;
+<input type="button" class="pro-btn basic close" value="取消">
+</div>
+</div>
+<div id="dlg_copy" class="dialog" style="width:420px;overflow: visible;" title="移动/复制 选中的项">
+<div class="dlg-content">
+<span style="font-weight:bold;margin-bottom:5px;display:inline-block">请选择您想复制/粘贴到的目标文件夹：</span>
+<div class="selection full">
+<span class="icons dropdown">&#xe618;</span>
+<span class='icons folder'>&#xe633;</span>
+<div class="text" folderId="root">我的文件</div>
+<div class="content-menu"></div>
+</div>
+</div>
+<div class="dlg-buttons">
+<span id="btn_submit_move" class="pro-btn default">移动</span>&nbsp;&nbsp;
+<span id="btn_submit_copy" class="pro-btn default">复制</span>&nbsp;&nbsp;
+<span class="pro-btn basic close">取消</span>
+</div>
+</div>
+<div id="dlg_export" title='下载' class="dialog" style="min-width:540px; height:auto;">
+<ul id="export-box" class="export-box">
+<li class="export-list">
+<input id="export_png" type="radio" name="export-format" value="image" checked="checked" style="float:left;margin-right: 5px;"/>
+<label for="export_png" class="export-menu" style="float:left;line-height: 18px;">
+PNG文件&nbsp;<span class="suffix">(*.png)</span>
+<span class="export_des">将文件导出为图片 (默认透明背景)</span>
+</label>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list flowonly">
+<input id="export_png_hd" type="radio" name="export-format" value="png" style="float: left;margin-right: 5px;">
+<label for="export_png_hd" class="export-menu" style="float:left;line-height: 18px;">
+高清图片文件<span class="suffix"> (*.png)</span>
+<span class="export_des">将文件导出为图片</span>
+</label>
+<div style="clear: both;"></div>
+</li>
+<li class="export-list">
+<input id="export_jpg" type="radio" name="export-format" value="jpg" style="float:left;margin-right:5px;"/>
+<label for="export_jpg" class="export-menu" style="float:left;line-height: 18px;">
+JPG文件&nbsp;<span class="suffix">(*.jpg)</span>
+<span class="export_des">将文件导出为JPG图片 （默认白底）</span>
+</label>
+<div style="clear:both;"></div>
+</li>
+<!-- 			<li class="export-list"> -->
+<!-- 				<input id="export_pdf" type="radio" name="export-format" value="pdf" style="float:left;margin-right:5px;"/> -->
+<!-- 				<label for="export_pdf" class="export-menu" style="float:left;line-height: 18px;"> -->
+<!-- 					PDF文件&nbsp;<span class="suffix">(*.pdf)</span> -->
+<!-- 					<span class="export_des">由图片保存成的PDF文件</span> -->
+<!-- 				</label> -->
+<!-- 				<div style="clear:both;"></div> -->
+<!-- 			</li> -->
+<li class="export-list">
+<input id="export_pos" type="radio" name="export-format" value="pos" style="float:left;margin-right:5px;"/>
+<label for="export_pos" class="export-menu" style="float:left;line-height: 18px;">
+POS文件&nbsp;<span class="suffix">(*.pos)</span>
+<span class="export_des">包含图片与图形结构定义（可导入）</span>
+</label>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list mindonly">
+<input id="export_xmind" type="radio" name="export-format" value="xmind" style="float:left;margin-right:5px;">
+<label for="export_xmind" class="export-menu" style="float:left;line-height: 18px;">
+XMind文件&nbsp;<span class="suffix"> (*.xmind)</span>
+<span class="export_des">导出为XMind文件</span>
+</label>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list mindonly">
+<input id="export_fmind" type="radio" name="export-format" value="fmind" style="float:left;margin-right:5px;">
+<label for="export_fmind" class="export-menu" style="float:left;line-height: 18px;">
+FreeMind文件&nbsp;<span class="suffix"> (*.mm)</span>
+<span class="export_des">导出为FreeMind文件</span>
+</label>
+<div style="clear:both;"></div>
+</li>
+<div class="mindonly" style="height: 1px;background: #eee;margin: 2px 0px;"></div>
+<li class="export-list mindonly mindvip">
+<input id="export_word" type="radio" name="export-format" value="word" style="float:left;margin-right:5px;">
+<label for="export_word" class="export-menu" style="float:left;line-height: 18px;">
+Word文件 &nbsp;<span class="suffix"> (*.docx)</span>
+<span class="export_des">导出为word大纲文件</span>
+</label>
+<span style="float:right;color: rgb(255, 159, 26);font-size: 13px;letter-spacing: 1px;font-weight: 400;">会员功能限免</span>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list mindonly mindvip">
+<input id="export_ppt" type="radio" name="export-format" value="ppt" style="float:left;margin-right:5px;">
+<label for="export_ppt" class="export-menu" style="float:left;line-height: 18px;">
+PPT文件&nbsp;<span class="suffix"> (*.pptx)</span>
+&nbsp; <span>导出为ppt大纲文件</span>
+<span class="export_des" style="color: rgb(80, 184, 129);display: none;">编辑模式下支持智能模板美化</span>
+</label>
+<span style="float:right;color: rgb(255, 159, 26);font-size: 13px;letter-spacing: 1px;font-weight: 400;">会员功能限免</span>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list mindonly mindvip">
+<input id="export_excle" type="radio" name="export-format" value="csv" style="float:left;margin-right:5px;">
+<label for="export_excle" class="export-menu" style="float:left;line-height: 18px;">
+EXCEL文件&nbsp;<span class="suffix"> (*.csv)</span>
+<span class="export_des">导出为excel文件</span>
+</label>
+<span style="float:right;color: rgb(255, 159, 26);font-size: 13px;letter-spacing: 1px;font-weight: 400;">会员功能限免</span>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list">
+<input id="export_pdfHD" type="radio" name="export-format" value="pdfHD" style="float:left;margin-right:5px;"/>
+<label for="export_pdfHD" class="export-menu" style="float:left;line-height: 18px;">
+PDF文件&nbsp;<span class="suffix">(*.pdf)</span>
+<span class="export_des">导出高清PDF文件</span>
+</label>
+<span style="float:right;color: rgb(255, 159, 26);font-size: 13px;letter-spacing: 1px;font-weight: 400;">会员功能限免</span>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list mindvip">
+<input id="export_svg" type="radio" name="export-format" value="svg" style="float:left;margin-right:5px;">
+<label for="export_svg" class="export-menu" style="float:left;line-height: 18px;">
+SVG文件&nbsp;<span class="suffix"> (*.svg)</span>
+<span class="export_des">导出为svg矢量图形</span>
+</label>
+<span class="mindonly" style="float:right;color: rgb(255, 159, 26);font-size: 13px;letter-spacing: 1px;font-weight: 400;">会员功能限免</span>
+<div style="clear:both;"></div>
+</li>
+<li class="export-list mindonly mindvip">
+<input id="export_pngHD" type="radio" name="export-format" value="pnghd" style="float:left;margin-right:5px;">
+<label for="export_pngHD" class="export-menu" style="float:left;line-height: 18px;">
+高清图片文件&nbsp;<span class="suffix"> (*.png)</span>
+<span class="export_des">导出为高清图片</span>
+</label>
+<span style="float:right;color: rgb(255, 159, 26);font-size: 13px;letter-spacing: 1px;font-weight: 400;">会员功能限免</span>
+<div style="clear:both;"></div>
+</li>
+</ul>
+<form id="export_form" action="https://assets.processon.com/diagram_export" method="get" style="display:none">
+<input id="export_type" name="type" type="hidden" value=""/>
+<input id="export_id" name="chartId" type="hidden" value=""/>
+<input id="export_mind" name="mind" type="hidden" value=""/>
+</form>
+<div class="dlg-buttons">
+<span id="export_submit" class="pro-btn default" style="margin-right:10px">确定</span>
+<span class="pro-btn basic close">取消</span>
+</div>
+</div>
+<div id="dlg_import" class="dlg-import dialog" title='文件导入'>
+<form style="display:block;margin-top:0;" id="share_upload_form" action="/import/flow" method="post" enctype="multipart/form-data">
+<div style="position:relative;">
+<div class="upload-contents">
+<div class="drop-img"><span class="if if-import"></span><span style="font-size:80px" class="icons">&#xe624;</span></div>
+<div class="drop-text"><span>直接拖入文件，即可上传</span></div>
+<div class="btn-wrap">
+<div id="import_btn" class="button default btn-lg">添加文件</div>
+</div>
+</div>
+<input id="share_doc_input" class="file-upload" name="file" type="file">
+</div>
+<input id="sys_input" type="hidden" name="sys" value="Windows"/>
+<input id="type_input" type="hidden" name="type" value="vsd"/>
+<input id="name_input" type="hidden" name="fileName"/>
+<input id="team_input" type="hidden" name="teamId"/>
+<input id="folder_input" type="hidden" name="folder"/>
+</form>
+<div class="des-list" style="resize: none;outline: none;font-size: inherit;"></div>
+</div>
+<div id="dlg_import_sheet" class="dialog" style="max-width: 680px;min-width: 500px;" title='文件导入'>
+<p>您导入的Excel包含 <span class="file-num"></span> 个sheet，已经帮您依次创建为以下文件，并存放当前文件夹</p>
+<div style='overflow-y: auto;max-height: 500px;'><ul></ul></div>
+<div class="dlg-buttons">
+<span class="pro-btn basic close">确定</span>
+</div>
+</div>
+<div id='pubpo_win' title='发布和公开到ProcessOn' class='dialog-win dialog' style="width:566px;">
+<div class='pubpo-content'></div>
+</div>
+<div id='share_win' title='分享' class='dialog-win dialog' style="width:700px;">
+<div class='dialog-win-left'>
+<ul>
+<!-- <li tit='publish' class='active'><a>发布到ProcessOn</a></li> -->
+<li tit='viewlink' class='active'><a>生成浏览链接</a></li>
+<li tit='emb'><a>嵌入到其他站点</a></li>
+<li tit='image'><a>生成在线图片</a></li>
+</ul>
+</div>
+<div class='dialog-win-right'></div>
+</div>
+<div id="coupon_expire_dialog" class="global_top_dialog top_success">
+<div class="coupon_expire_dialog_con">
+你有<strong class="coupon">  </strong> 张优惠码即将过期，可以使用<strong>升级个人版</strong> ，<span class="view_underline">点击查看</span>
+</div>
+<div class="coupontip-close icons">&#xe637;</div>
+</div>
+<div class="left-bottom-files">
+<div class="bars-des">
+<span class="filecount">文件数 <span></span> / <span></span></span>
+<a href="/upgrade?pos=2_2" class="right">升级</a>
+</div>
+<div class="bars">
+<div class="bars-before"></div>
+</div>
+<a href="/upgrade?from=files" class="bars-des-bt">免费增加文件数</a>
+</div>
+<div class="left-bottom-con">
+<span style="display:none;" id="TencentCaptcha" class="pro-btn default pub-btn">点击验证</span>
+<div><a style="color:#555;" href="/support">帮助手册</a><a class="feedback-btn">反馈</a></div><div><a href="/tos">服务条款</a><a href="/about">关于我们</a></div>
+</div>
+<!-- 压缩js -->
+<script src="/assets/js/jquery-e2a07f0c.js" charset="UTF-8" type="text/javascript"></script>
+<script src="/assets/js/util-e2a07f0c.js" charset="UTF-8" type="text/javascript"></script>
+<script type='text/javascript' charset='UTF-8' src='/scripts_bin/zh/collaboration.js?_=1600059171'></script>
+<!-- merge to -->
+<script main=true src="/assets/js/min/index.min-e2a07f0c.js" charset="UTF-8" type="text/javascript"></script>
+
+<script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+
+<script type="text/javascript">
+window.zhuge = window.zhuge || [];window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
+window.zhuge.factory = function(b) {return function() {var a = Array.prototype.slice.call(arguments);a.unshift(b);
+window.zhuge.push(a);return window.zhuge;}};for (var i = 0; i < window.zhuge.methods.length; i++) {
+var key = window.zhuge.methods[i];window.zhuge[key] = window.zhuge.factory(key);}window.zhuge.load = function(b, x) {
+if (!document.getElementById("zhuge-js")) {var a = document.createElement("script");var verDate = new Date();
+var verStr = verDate.getFullYear().toString()+ verDate.getMonth().toString() + verDate.getDate().toString();
+a.type = "text/javascript";a.id = "zhuge-js";a.async = !0;a.src = (location.protocol == 'http:' ? "http://sdk.zhugeio.com/zhuge.min.js?v=" : 'https://zgsdk.zhugeio.com/zhuge.min.js?v=') + verStr;
+a.onerror = function(){window.zhuge.identify = window.zhuge.track = function(ename, props, callback){if(callback && Object.prototype.toString.call(callback) === '[object Function]')callback();};};
+var c = document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a, c);window.zhuge._init(b, x)}};
+window.zhuge.load('3f37ba50e54f4374b9af5be6d12b208f',{autoTrack:true,singlePage: true});//éç½®åºç¨çAppKey
+</script>
+<script type="text/javascript">
+(function(){var po_user_id = getCookie();if(po_user_id == ''){removeLoginTag();return};var userLoginTag = localStorage.getItem('userLoginTag_'+ po_user_id);if(userLoginTag){return}zhuge.identify(po_user_id, {});localStorage.setItem('userLoginTag_'+ po_user_id, 'login');function getCookie(){var name = "processon_userKey=";
+var ca = document.cookie.split(';');for(var i=0, len = ca.length; i < len; i++){var c = ca[i].trim();if (c.indexOf(name) == 0){return c.substring(name.length,c.length);};}return "";}
+function removeLoginTag(){for(var key in localStorage){if(key.indexOf('userLoginTag') > -1){localStorage.removeItem(key)}}}})();
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-28802488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script type="application/javascript">
+//注册埋点
+var signuptype = sessionStorage.getItem('signuptype');
+if(signuptype !== null){
+if (signuptype == 'wx_signup') {
+signuptype = '注册页_微信注册';
+} else if(signuptype == 'phone_signup'){
+signuptype = '注册页_立即注册';
+};
+sessionStorage.removeItem('signuptype');
+zhuge.track('注册成功', {
+'操作名称':'注册',
+'当前页面':'注册页',
+'注册方式':signuptype,
+'操作结果': '成功'
+});
+}
+zhuge.track('登录成功', {
+'操作名称':'登录',
+'当前页面':'登录页',
+'登录方式':signuptype == null ? "手机" : signuptype,
+'操作结果': '成功'
+});
+</script>
 </body>
 </html>
