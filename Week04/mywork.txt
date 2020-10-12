@@ -1,0 +1,97 @@
+1. SELECT * FROM data;
+生成data
+group = ['x','y','z']
+data = pd.DataFrame({
+    "name":[group[x] for x in np.random.randint(0,len(group),20)] ,
+    "id":np.random.randint(1,2000,20),
+"age":np.random.randint(15,50,20)
+    })
+data
+   name    id  age
+0     z   123   15
+1     z   165   30
+2     z  1563   27
+3     z  1026   16
+4     x  1272   32
+5     z   757   15
+6     y  1962   28
+7     x   451   27
+8     x   787   42
+9     y   466   33
+10    x  1886   48
+11    x  1719   25
+12    x   512   20
+13    x  1045   38
+14    y   664   29
+15    z  1907   37
+16    x   803   45
+17    x    32   19
+18    y  1479   15
+19    x  1669   33
+
+   df=data
+   df
+
+2. SELECT * FROM data LIMIT 10;
+   df[1:10]
+   
+3. SELECT id FROM data;  //id 是 data 表的特定一列
+   df['id']
+
+4. SELECT COUNT(id) FROM data;
+   df['id'].count()
+
+5. SELECT * FROM data WHERE id<1000 AND age>30;
+   df[(df['id']<1000)&(df['age']>30)]
+
+6. SELECT id,COUNT(DISTINCT order_id) FROM table1 GROUP BY id;
+  生成table1
+table1 = pd.DataFrame({
+    "name":[group[x] for x in np.random.randint(0,len(group),20)] ,
+    "id":np.random.randint(1,2000,20),
+"order_id":np.random.randint(15,50,20)
+    })
+   name    id  order_id
+0     x  1285        46
+1     x  1137        21
+2     z  1489        32
+3     y   352        48
+4     z   803        21
+5     x  1173        44
+6     x  1685        17
+7     x   523        38
+8     z   871        46
+9     x  1316        30
+10    x  1040        25
+11    y    34        15
+12    z   772        23
+13    y  1613        27
+14    x   890        45
+15    z  1086        23
+16    x  1618        41
+17    x  1389        38
+18    y  1506        20
+19    x   831        35
+
+
+   df=table1
+   df.drop_duplicates(subset=['id','order_id']).groupby('id').agg({'order_id':'count'})
+     order_id
+id
+990         4
+991         1
+992         1
+993         3
+995         6
+997         1
+998         1
+999         1
+有点投机取巧，没有找到在aggregate里直接distinct的办法，先对id,order_id一起去重，再groupby
+
+7. SELECT * FROM table1 t1 INNER JOIN table2 t2 ON t1.id = t2.id;
+
+8. SELECT * FROM table1 UNION SELECT * FROM table2;
+
+9. DELETE FROM table1 WHERE id=10;
+
+10. ALTER TABLE table1 DROP COLUMN column_name;
