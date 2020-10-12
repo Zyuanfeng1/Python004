@@ -176,6 +176,48 @@ id
 
 8. SELECT * FROM table1 UNION SELECT * FROM table2;
 
+>>> df=pd.concat([table1,table2])
+>>> df.drop_duplicates()
+   name   id   age  order_id
+0     x    6  24.0       NaN
+1     y   14  45.0       NaN
+2     y    6  36.0       NaN
+3     y    7  32.0       NaN
+4     x    5  35.0       NaN
+5     x   14  40.0       NaN
+6     x   14  38.0       NaN
+7     x   14  33.0       NaN
+8     z   12  37.0       NaN
+9     x   11  29.0       NaN
+10    z    5  22.0       NaN
+11    y    5  44.0       NaN
+12    y    5  20.0       NaN
+13    y   10  30.0       NaN
+14    y   12  28.0       NaN
+15    y    6  22.0       NaN
+16    z   14  41.0       NaN
+17    y    7  48.0       NaN
+19    x   12  25.0       NaN
+0     y  990   NaN      48.0
+1     z  997   NaN      47.0
+2     z  993   NaN      41.0
+3     z  993   NaN      42.0
+4     y  998   NaN      43.0
+5     y  993   NaN      40.0
+6     y  990   NaN      47.0
+7     y  994   NaN      48.0
+8     y  994   NaN      43.0
+9     z  990   NaN      47.0
+10    x  995   NaN      44.0
+11    x  994   NaN      41.0
+12    y  994   NaN      40.0
+13    y  998   NaN      40.0
+14    x  996   NaN      45.0
+15    x  999   NaN      40.0
+16    y  991   NaN      47.0
+17    y  999   NaN      41.0
+18    x  998   NaN      40.0
+19    z  999   NaN      43.0
 
 
 9. DELETE FROM table1 WHERE id=10;
