@@ -7,17 +7,27 @@
 import pymysql
 
 
+
 class SpidersPipeline:
-    def open_spider(self,spider):
-        self.conn = pymysql.connect(host='localhost',
-                               port=3306,
-                               user='root',
-                               password='',
-                               database='test',
-                               charset='utf8mb4'
-                               )
+    def __init__(self,info):
+        self.info=info
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(info=crawler.settings.get('DATABASE_INFO'))
+        print(info)
+    def open_spider(self, spider):
+        # self.conn = pymysql.connect(host='localhost',
+        #                        port=3306,
+        #                        user='root',
+        #                        password='',
+        #                        database='test',
+        #                        charset='utf8mb4'
+        #                        )
+        self.conn = pymysql.connect(**self.info)
         # 获得cursor游标对象
         self.con1 = self.conn.cursor()
+
     def process_item(self, item, spider):
         name = item['name']
         category = item['category']
@@ -32,7 +42,7 @@ class SpidersPipeline:
         # values = [(id,'testuser'+str(id)) for id in range(4, 21) ]
         # cursor.executemany('INSERT INTO '+ TABLE_NAME +' values(%s,%s)' ,values)
         return item
-    def close_spider(self,spider):
+
+    def close_spider(self, spider):
         self.con1.close()
         self.conn.close()
-

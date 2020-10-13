@@ -50,6 +50,19 @@ COOKIES_ENABLED = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+DATABASE_INFO = {'host':'localhost',
+    'port': 3306,
+    'user': 'root',
+    'password': '',
+    'database': 'test',
+    'charset': 'utf8mb4'}
+HOST='localhost'
+PORT= 3306
+USER= 'root'
+PASSWORD= ''
+DATABASE= 'test'
+CHARSET= 'utf8mb4'
+
 DOWNLOADER_MIDDLEWARES = {
     'spiders.middlewares.SpidersDownloaderMiddleware': 543,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
@@ -58,9 +71,10 @@ DOWNLOADER_MIDDLEWARES = {
     'spiders.middlewares.RandomHttpProxyMiddleware': 400,
 }
 HTTP_PROXY_LIST = [
-    'http://52.179.231.206:80',
-    'http://95.0.194.241:9090',
-    'http://123.163.27.150:9999'
+    # 'https://61.131.213.2:8888'
+    # 'https://58.47.8.93:3128',
+    # 'https://220.191.68.81:9000',
+    # 'https://27.206.182.239:9000'
 ]
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
