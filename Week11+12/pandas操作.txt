@@ -1,0 +1,13 @@
+>>> import pandas as pd
+>>> df=pd.read_csv('shorts.csv',names=['rate','shorts'],header=None)
+>>> star_to_number = {
+...     '力荐' : 5,
+...     '推荐' : 4,
+...     '还行' : 3,
+...     '较差' : 2,
+...     '很差' : 1
+... }
+>>> df['vote']=df['rate'].map(star_to_number)
+>>> df=df[['vote','rate','shorts']]
+>>> df.to_csv('shortsModified')
+
